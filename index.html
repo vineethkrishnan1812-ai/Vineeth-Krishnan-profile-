@@ -1,707 +1,521 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Vineeth Krishnan | HR Galaxy Portfolio</title>
-
-<meta name="description"
-content="MBA HR & Finance Portfolio">
-
-<link rel="preconnect"
-href="https://fonts.googleapis.com">
-
-<link rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-rel="stylesheet">
-
-<link rel="stylesheet"
-href="style.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vineeth Krishnan | Premium HR & Finance Portfolio</title>
+  <meta name="description" content="MBA HR & Finance - Premium Cinematic Portfolio">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <!-- ===========================
-3D BACKGROUND
-=========================== -->
+     3D BACKGROUND EFFECTS
+     =========================== -->
 
 <canvas id="bg-canvas"></canvas>
-
 <div class="stars"></div>
 
+<!-- Animated Nebula -->
 <div class="nebula nebula1"></div>
-
 <div class="nebula nebula2"></div>
-
 <div class="nebula nebula3"></div>
 
+<!-- Glassmorphism Blobs -->
 <div class="glass-blobs">
-
-<div class="blob blob1"></div>
-
-<div class="blob blob2"></div>
-
-<div class="blob blob3"></div>
-
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
 </div>
 
+<!-- Animated Neural Network -->
+<canvas id="neural-canvas"></canvas>
+
 <!-- ===========================
-LOADER
-=========================== -->
+     LOADER
+     =========================== -->
 
 <div id="loader">
-
-<div class="loader-ring"></div>
-
-<h2>Loading Portfolio...</h2>
-
+  <div class="loader-ring"></div>
+  <h2>Loading Premium Portfolio...</h2>
+  <div class="loader-text">Initializing neural systems...</div>
 </div>
 
 <!-- ===========================
-NAVBAR
-=========================== -->
+     STICKY NAVBAR
+     =========================== -->
 
 <header class="navbar">
+  <div class="logo">
+    <div class="logo-dot"></div>
+    <span>VINEETH</span>
+  </div>
 
-<div class="logo">
+  <nav>
+    <ul>
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-<div class="logo-dot"></div>
-
-<span>VINEETH</span>
-
-</div>
-
-<nav>
-
-<ul>
-
-<li>
-<a href="#home" class="active">
-Home
-</a>
-</li>
-
-<li>
-<a href="#about">
-About
-</a>
-</li>
-
-<li>
-<a href="#skills">
-Skills
-</a>
-</li>
-
-<li>
-<a href="#experience">
-Experience
-</a>
-</li>
-
-<li>
-<a href="#education">
-Education
-</a>
-</li>
-
-<li>
-<a href="#contact">
-Contact
-</a>
-</li>
-
-</ul>
-
-</nav>
-
-<a href="assets/resume.pdf"
-class="resume-btn"
-download>
-
-⬇ Download Resume
-
-</a>
-
+  <a href="assets/resume.pdf" class="resume-btn" download>
+    <i class="fas fa-download"></i> Resume
+  </a>
 </header>
-<!-- ==========================================
-HERO SECTION
-========================================== -->
+
+<!-- ===========================
+     HERO SECTION
+     =========================== -->
 
 <section id="home" class="hero">
+  <div class="hero-left">
+    <div class="status-pill">
+      <span class="green-dot"></span>
+      AVAILABLE FOR OPPORTUNITIES
+    </div>
 
-<div class="hero-left">
+    <h1>
+      VINEETH
+      <span>KRISHNAN</span>
+    </h1>
 
-<div class="status-pill">
+    <h2 id="typing" class="typing-effect">MBA | HR & FINANCE</h2>
 
-<span class="green-dot"></span>
+    <div class="hero-line"></div>
 
-AVAILABLE FOR HR OPPORTUNITIES
+    <p>MBA graduate specializing in Human Resources & Finance. Passionate about Recruitment, Payroll, Employee Relations, HR Operations, and Organizational Development.</p>
 
-</div>
+    <!-- Contact Info -->
+    <div class="contact-info-hero">
+      <a href="mailto:vineethkrishnan2000@gmail.com" class="contact-link">
+        <i class="fas fa-envelope"></i>
+        <span>vineethkrishnan2000@gmail.com</span>
+      </a>
+      <a href="tel:+918592013885" class="contact-link">
+        <i class="fas fa-phone"></i>
+        <span>+91 859 201 3885</span>
+      </a>
+      <div class="contact-link">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>Alappuzha, Kerala</span>
+      </div>
+    </div>
 
-<h1>
+    <div class="hero-buttons">
+      <a href="#about" class="primary-btn">
+        <i class="fas fa-arrow-down"></i> Explore Portfolio
+      </a>
+      <a href="assets/resume.pdf" download class="secondary-btn">
+        <i class="fas fa-file-pdf"></i> Download Resume
+      </a>
+    </div>
 
-VINEETH
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/vineeth-krishnan-057180303" target="_blank" title="LinkedIn">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a href="mailto:vineethkrishnan2000@gmail.com" title="Email">
+        <i class="fas fa-envelope"></i>
+      </a>
+      <a href="tel:+918592013885" title="Phone">
+        <i class="fas fa-phone"></i>
+      </a>
+      <a href="https://github.com" target="_blank" title="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+  </div>
 
-<span>KRISHNAN</span>
+  <div class="hero-right">
+    <div class="profile-wrapper">
+      <div class="profile-glow"></div>
+      <div class="profile-ring"></div>
+      
+      <img src="assets/profile.jpg" alt="Vineeth Krishnan" class="profile-image">
 
-</h1>
-
-<h2 id="typing">
-
-MBA | HR & FINANCE
-
-</h2>
-
-<div class="hero-line"></div>
-
-<p>
-
-MBA graduate specializing in Human Resources & Finance.
-Passionate about Recruitment, Payroll, Employee Relations,
-HR Operations, and Organizational Development.
-
-</p>
-
-<div class="hero-buttons">
-
-<a href="#about" class="primary-btn">
-
-🚀 Explore Portfolio
-
-</a>
-
-<a href="assets/resume.pdf"
-
-download
-
-class="secondary-btn">
-
-📄 Download Resume
-
-</a>
-
-</div>
-
-<div class="social-icons">
-
-<a href="https://www.linkedin.com/in/vineeth-krishnan-057180303">
-
-in
-
-</a>
-
-<a href="mailto:yourmail@email.com">
-
-✉
-
-</a>
-
-<a href="tel:+91XXXXXXXXXX">
-
-📞
-
-</a>
-
-</div>
-
-</div>
-
-<div class="hero-right">
-
-<div class="profile-wrapper">
-
-<div class="profile-glow"></div>
-
-<div class="profile-ring"></div>
-
-<img
-
-src="assets/profile.jpg"
-
-alt="Vineeth"
-
-class="profile-image"
-
->
-
-<div class="floating-card card1">
-
-🟢 Open to Work
-
-</div>
-
-<div class="floating-card card2">
-
-👥 Human Resources
-
-</div>
-
-<div class="floating-card card3">
-
-📊 Finance
-
-</div>
-
-<div class="floating-card card4">
-
-📄 Payroll & Admin
-
-</div>
-
-</div>
-
-</div>
-
+      <!-- Floating Glass Cards -->
+      <div class="floating-card card1">
+        <i class="fas fa-check-circle"></i> Open to Work
+      </div>
+      <div class="floating-card card2">
+        <i class="fas fa-users"></i> Human Resources
+      </div>
+      <div class="floating-card card3">
+        <i class="fas fa-chart-line"></i> Finance
+      </div>
+      <div class="floating-card card4">
+        <i class="fas fa-file-invoice"></i> Payroll & Admin
+      </div>
+    </div>
+  </div>
 </section>
-<!-- ==========================================
-ABOUT
-========================================== -->
+
+<!-- ===========================
+     ABOUT SECTION
+     =========================== -->
 
 <section id="about" class="section">
+  <div class="section-title">
+    <h5>ABOUT ME</h5>
+    <h2>Who Am I?</h2>
+  </div>
 
-<div class="section-title">
+  <div class="about-grid">
+    <div class="glass-card">
+      <div class="card-icon">👤</div>
+      <h3>Professional Profile</h3>
+      <p>MBA graduate specializing in Human Resources & Finance with strong interest in Recruitment, Payroll, Employee Relations and HR Operations.</p>
+    </div>
 
-<h5>ABOUT ME</h5>
+    <div class="glass-card">
+      <div class="card-icon">🎯</div>
+      <h3>Career Goal</h3>
+      <p>To contribute to organizational success through modern HR practices while continuously learning and growing professionally.</p>
+    </div>
 
-<h2>Who Am I?</h2>
+    <div class="glass-card">
+      <div class="card-icon">📍</div>
+      <h3>Location & Mobility</h3>
+      <p>
+        Alappuzha, Kerala<br>
+        <strong style="color: var(--red);">Open to Relocation</strong>
+      </p>
+    </div>
 
-</div>
-
-<div class="about-grid">
-
-<div class="glass-card">
-
-<div class="card-icon">👤</div>
-
-<h3>Profile</h3>
-
-<p>
-
-MBA graduate specializing in Human Resources & Finance with strong interest in Recruitment, Payroll, Employee Relations and HR Operations.
-
-</p>
-
-</div>
-
-<div class="glass-card">
-
-<div class="card-icon">🎯</div>
-
-<h3>Career Goal</h3>
-
-<p>
-
-To contribute to organizational success through modern HR practices while continuously learning and growing professionally.
-
-</p>
-
-</div>
-
-<div class="glass-card">
-
-<div class="card-icon">📍</div>
-
-<h3>Location</h3>
-
-<p>
-
-Alappuzha, Kerala
-
-<br>
-
-Open to Relocation
-
-</p>
-
-</div>
-
-<div class="glass-card">
-
-<div class="card-icon">💡</div>
-
-<h3>Strengths</h3>
-
-<ul>
-
-<li>Leadership</li>
-
-<li>Communication</li>
-
-<li>Problem Solving</li>
-
-<li>Team Work</li>
-
-<li>Time Management</li>
-
-</ul>
-
-</div>
-
-</div>
-
+    <div class="glass-card">
+      <div class="card-icon">💡</div>
+      <h3>Key Strengths</h3>
+      <ul>
+        <li>Leadership & Team Management</li>
+        <li>Communication & Negotiation</li>
+        <li>Problem Solving & Analytics</li>
+        <li>Time Management</li>
+        <li>HR Operations & Compliance</li>
+      </ul>
+    </div>
+  </div>
 </section>
 
-<!-- ==========================================
-SKILLS
-========================================== -->
+<!-- ===========================
+     SKILLS SECTION
+     =========================== -->
 
 <section id="skills" class="section">
-
-<div class="section-title">
-
-<h5>SKILLS</h5>
-
-<h2>Professional Skills</h2>
-
-</div>
-
-<div class="skills-grid">
-
-<div class="skill-card">
-
-<h3>Human Resources</h3>
-
-<div class="skill">
-
-<span>Recruitment <b>95%</b></span>
-
-<div class="progress">
-
-<div style="width:95%"></div>
-
-</div>
-
-</div>
-
-<div class="skill">
-
-<span>Payroll <b>90%</b></span>
-
-<div class="progress">
-
-<div style="width:90%"></div>
-
-</div>
-
-</div>
-
-<div class="skill">
-
-<span>Employee Relations <b>88%</b></span>
-
-<div class="progress">
-
-<div style="width:88%"></div>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="skill-card">
-
-<h3>Finance</h3>
-
-<div class="skill">
-
-<span>MS Excel <b>92%</b></span>
-
-<div class="progress">
-
-<div style="width:92%"></div>
-
-</div>
-
-</div>
-
-<div class="skill">
-
-<span>Accounting <b>88%</b></span>
-
-<div class="progress">
-
-<div style="width:88%"></div>
-
-</div>
-
-</div>
-
-<div class="skill">
-
-<span>Financial Analysis <b>85%</b></span>
-
-<div class="progress">
-
-<div style="width:85%"></div>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="skill-card">
-
-<h3>Professional</h3>
-
-<div class="skill">
-
-<span>Leadership <b>95%</b></span>
-
-<div class="progress">
-
-<div style="width:95%"></div>
-
-</div>
-
-</div>
-
-<div class="skill">
-
-<span>Communication <b>90%</b></span>
-
-<div class="progress">
-
-<div style="width:90%"></div>
-
-</div>
-
-</div>
-
-<div class="skill">
-
-<span>Problem Solving <b>90%</b></span>
-
-<div class="progress">
-
-<div style="width:90%"></div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
+  <div class="section-title">
+    <h5>PROFESSIONAL SKILLS</h5>
+    <h2>Expertise & Proficiency</h2>
+  </div>
+
+  <div class="skills-grid">
+    <div class="skill-card">
+      <h3><i class="fas fa-briefcase"></i> Human Resources</h3>
+      
+      <div class="skill">
+        <span>Recruitment & Selection <b>95%</b></span>
+        <div class="progress">
+          <div style="width:95%"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <span>Payroll Management <b>90%</b></span>
+        <div class="progress">
+          <div style="width:90%"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <span>Employee Relations <b>88%</b></span>
+        <div class="progress">
+          <div style="width:88%"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <span>HR Operations <b>92%</b></span>
+        <div class="progress">
+          <div style="width:92%"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <h3><i class="fas fa-calculator"></i> Finance & Analytics</h3>
+      
+      <div class="skill">
+        <span>MS Excel <b>92%</b></span>
+        <div class="progress">
+          <div style="width:92%"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <span>Accounting & Taxation <b>88%</b></span>
+        <div class="progress">
+          <div style="width:88%"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <span>Financial Analysis <b>85%</b></span>
+        <div class="progress">
+          <div style="width:85%"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <span>Budget Management <b>86%</b></span>
+        <div class="progress">
+          <div style="width:86%"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <h3><i class="fas fa-star"></i> Professional Skills</h3>
+      
+      <div class="skill">
+        <span>Leadership <b>95%</b></span>
+        <div class="progress">
+          <div style="width:95%"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <span>Communication <b>90%</b></span>
+        <div class="progress">
+          <div style="width:90%"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <span>Problem Solving <b>90%</b></span>
+        <div class="progress">
+          <div style="width:90%"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <span>Strategic Planning <b>87%</b></span>
+        <div class="progress">
+          <div style="width:87%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
-<!-- ==========================================
-EXPERIENCE
-========================================== -->
+
+<!-- ===========================
+     EXPERIENCE SECTION
+     =========================== -->
 
 <section id="experience" class="section">
+  <div class="section-title">
+    <h5>PROFESSIONAL JOURNEY</h5>
+    <h2>Work Experience</h2>
+  </div>
 
-<div class="section-title">
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-card">
+        <div class="timeline-header">
+          <h3><i class="fas fa-user-tie"></i> HR Intern</h3>
+          <span class="timeline-date">2023 - 2024</span>
+        </div>
+        
+        <h4>Alleppey Co-operative Spinning Mills Ltd.</h4>
+        
+        <div class="timeline-skills">
+          <span class="skill-tag">Recruitment</span>
+          <span class="skill-tag">Documentation</span>
+          <span class="skill-tag">Payroll</span>
+        </div>
 
-<h5>EXPERIENCE</h5>
-
-<h2>Professional Journey</h2>
-
-</div>
-
-<div class="timeline">
-
-<div class="timeline-item">
-
-<div class="timeline-card">
-
-<h3>HR Intern</h3>
-
-<h4>Alleppey Co-operative Spinning Mills Ltd.</h4>
-
-<p>
-
-• Recruitment Support<br>
-
-• Employee Documentation<br>
-
-• Attendance Management<br>
-
-• Payroll Assistance<br>
-
-• HR Administration
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
+        <p>
+          • Supported recruitment process and candidate screening<br>
+          • Managed employee documentation and record keeping<br>
+          • Assisted in attendance management systems<br>
+          • Supported payroll processing and verification<br>
+          • Handled HR administration and compliance tasks
+        </p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- ==========================================
-EDUCATION
-========================================== -->
+<!-- ===========================
+     EDUCATION SECTION
+     =========================== -->
 
 <section id="education" class="section">
+  <div class="section-title">
+    <h5>ACADEMIC QUALIFICATIONS</h5>
+    <h2>Education & Certifications</h2>
+  </div>
 
-<div class="section-title">
+  <div class="education-grid">
+    <div class="education-card">
+      <div class="education-icon">
+        <i class="fas fa-graduation-cap"></i>
+      </div>
+      <h3>MBA</h3>
+      <span>Human Resources & Finance</span>
+      <p>APJ Abdul Kalam Technological University</p>
+      <div class="education-year">2022 - 2024</div>
+    </div>
 
-<h5>EDUCATION</h5>
-
-<h2>Academic Qualification</h2>
-
-</div>
-
-<div class="education-grid">
-
-<div class="education-card">
-
-<h3>MBA</h3>
-
-<span>Human Resources & Finance</span>
-
-<p>
-
-APJ Abdul Kalam Technological University
-
-</p>
-
-</div>
-
-<div class="education-card">
-
-<h3>B.Com</h3>
-
-<span>Taxation</span>
-
-<p>
-
-Kerala University
-
-</p>
-
-</div>
-
-</div>
-
+    <div class="education-card">
+      <div class="education-icon">
+        <i class="fas fa-book"></i>
+      </div>
+      <h3>B.Com</h3>
+      <span>Taxation</span>
+      <p>Kerala University</p>
+      <div class="education-year">2019 - 2022</div>
+    </div>
+  </div>
 </section>
 
-<!-- ==========================================
-CONTACT
-========================================== -->
+<!-- ===========================
+     CONTACT SECTION
+     =========================== -->
 
 <section id="contact" class="section">
+  <div class="section-title">
+    <h5>GET IN TOUCH</h5>
+    <h2>Let's Connect & Collaborate</h2>
+  </div>
 
-<div class="section-title">
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="contact-icon">
+        <i class="fas fa-envelope"></i>
+      </div>
+      <h3>Email Address</h3>
+      <p>vineethkrishnan2000@gmail.com</p>
+      <a href="mailto:vineethkrishnan2000@gmail.com" class="contact-btn">
+        <i class="fas fa-paper-plane"></i> Send Email
+      </a>
+    </div>
 
-<h5>CONTACT</h5>
+    <div class="contact-card">
+      <div class="contact-icon">
+        <i class="fas fa-phone"></i>
+      </div>
+      <h3>Phone Number</h3>
+      <p>+91 859 201 3885</p>
+      <a href="tel:+918592013885" class="contact-btn">
+        <i class="fas fa-phone"></i> Call Now
+      </a>
+    </div>
 
-<h2>Let's Connect</h2>
+    <div class="contact-card">
+      <div class="contact-icon">
+        <i class="fas fa-map-marker-alt"></i>
+      </div>
+      <h3>Location</h3>
+      <p>Alappuzha, Kerala, India</p>
+      <a href="https://maps.google.com/maps?q=Alappuzha,Kerala" target="_blank" class="contact-btn">
+        <i class="fas fa-directions"></i> Get Directions
+      </a>
+    </div>
 
-</div>
+    <div class="contact-card">
+      <div class="contact-icon">
+        <i class="fab fa-linkedin-in"></i>
+      </div>
+      <h3>Professional Network</h3>
+      <p>LinkedIn Profile</p>
+      <a href="https://www.linkedin.com/in/vineeth-krishnan-057180303" target="_blank" class="contact-btn">
+        <i class="fab fa-linkedin-in"></i> Connect
+      </a>
+    </div>
+  </div>
 
-<div class="contact-grid">
-
-<div class="contact-card">
-
-<h3>📧 Email</h3>
-
-<p>yourmail@email.com</p>
-
-</div>
-
-<div class="contact-card">
-
-<h3>📱 Phone</h3>
-
-<p>+91 XXXXX XXXXX</p>
-
-</div>
-
-<div class="contact-card">
-
-<h3>📍 Location</h3>
-
-<p>Alappuzha, Kerala</p>
-
-</div>
-
-</div>
-
-<div class="hero-buttons"
-
-style="justify-content:center;margin-top:50px;">
-
-<a href="assets/resume.pdf"
-
-download
-
-class="primary-btn">
-
-📄 Download Resume
-
-</a>
-
-<a href="https://www.linkedin.com/in/vineeth-krishnan-057180303"
-
-target="_blank"
-
-class="secondary-btn">
-
-LinkedIn
-
-</a>
-
-</div>
-
+  <!-- Action Buttons -->
+  <div class="contact-actions">
+    <a href="assets/resume.pdf" download class="btn-action primary">
+      <i class="fas fa-download"></i> Download Resume
+    </a>
+    <a href="https://www.linkedin.com/in/vineeth-krishnan-057180303" target="_blank" class="btn-action secondary">
+      <i class="fab fa-linkedin-in"></i> LinkedIn Profile
+    </a>
+  </div>
 </section>
-<!-- ==========================================
-FOOTER
-========================================== -->
+
+<!-- ===========================
+     FOOTER
+     =========================== -->
 
 <footer>
+  <div class="footer-content">
+    <div class="footer-section">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+      </ul>
+    </div>
 
-<p>
+    <div class="footer-section">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:vineethkrishnan2000@gmail.com">Email</a></li>
+        <li><a href="tel:+918592013885">Phone</a></li>
+        <li><a href="#contact">Get in Touch</a></li>
+      </ul>
+    </div>
 
-© <span id="year"></span>
+    <div class="footer-section">
+      <h4>Social</h4>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/vineeth-krishnan-057180303" target="_blank" title="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://github.com" target="_blank" title="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="mailto:vineethkrishnan2000@gmail.com" title="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+    </div>
+  </div>
 
-Vineeth Krishnan
-
-|
-
-HR & Finance Portfolio
-
-</p>
-
+  <div class="footer-bottom">
+    <p>© <span id="year"></span> Vineeth Krishnan | Premium HR & Finance Portfolio</p>
+    <div class="footer-tech">
+      <span>Crafted with</span>
+      <i class="fas fa-heart"></i>
+      <span>Using Modern Web Technologies</span>
+    </div>
+  </div>
 </footer>
 
-<!-- ==========================================
-BACKGROUND EFFECTS
-========================================== -->
+<!-- Back to Top Button -->
+<button id="backToTop" class="back-to-top" title="Back to top">
+  <i class="fas fa-arrow-up"></i>
+</button>
 
-<div class="mouse-light"></div>
-
-<div class="particles"></div>
-
-<!-- ==========================================
-SCRIPTS
-========================================== -->
+<!-- ===========================
+     SCRIPTS
+     =========================== -->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
-<script src="three-scene.js"></script>
-
+<script src="neural-network.js"></script>
 <script src="script.js"></script>
 
 </body>
-
 </html>
-
-
-
-
-
