@@ -60,6 +60,7 @@ window.innerHeight
 );
 
 renderer.outputEncoding=THREE.sRGBEncoding;
+
 const controls = new THREE.OrbitControls(camera, renderer.domElement);
 
 controls.enableDamping = true;
@@ -750,12 +751,5 @@ controls.update();
 // Render
 // ======================================
 
-renderer.render(
-
-scene,
-
-camera
-
-);
-
+renderer.render(scene,camera);
 }
