@@ -944,4 +944,29 @@ footer {
     z-index: -2;
     pointer-events: none;
 }
+   /* ===================================================
+   3D CANVAS PERSPECTIVE OVERRIDE
+   =================================================== */
+
+/* Hide old static 2D elements that interrupt the 3D scroll depth */
+.stars, 
+.nebula, 
+.nebula1, 
+.nebula2, 
+.nebula3, 
+.glass-blobs, 
+.blob {
+    display: none !important;
+}
+
+/* Fix the WebGL background window properly behind HTML contents */
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    pointer-events: none;
+}
    
