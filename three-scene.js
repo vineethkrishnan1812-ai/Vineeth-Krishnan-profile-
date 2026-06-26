@@ -60,6 +60,16 @@ window.innerHeight
 );
 
 renderer.outputEncoding=THREE.sRGBEncoding;
+const controls = new THREE.OrbitControls(camera, renderer.domElement);
+
+controls.enableDamping = true;
+controls.dampingFactor = 0.05;
+
+controls.enableZoom = false;
+controls.enablePan = false;
+
+controls.autoRotate = true;
+controls.autoRotateSpeed = 0.4;
 
 
 // ---------- Resize ----------
@@ -735,7 +745,7 @@ camera.position.y +=
 
 camera.lookAt(scene.position);
 
-
+controls.update();
 // ======================================
 // Render
 // ======================================
@@ -749,21 +759,3 @@ camera
 );
 
 }
-
-animate();
-controls.update();
-const controls = new THREE.OrbitControls(camera, renderer.domElement);
-
-controls.enableDamping = true;
-
-controls.dampingFactor = 0.05;
-
-controls.enableZoom = false;
-
-controls.enablePan = false;
-
-controls.autoRotate = true;
-
-controls.autoRotateSpeed = 0.4;
-
-
