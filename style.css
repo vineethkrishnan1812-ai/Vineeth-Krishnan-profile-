@@ -919,4 +919,29 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
+  /* ===================================================
+   3D BACKGROUND SYSTEM OVERRIDE (PASTE AT THE BOTTOM)
+   =================================================== */
+
+/* Hide the old flat 2D elements that block the 3D canvas camera perspective */
+.stars, 
+.nebula, 
+.nebula1, 
+.nebula2, 
+.nebula3, 
+.glass-blobs, 
+.blob {
+    display: none !important;
+}
+
+/* Position and lock the 3D viewport canvas into the background layout */
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    pointer-events: none;
+}
+   
