@@ -1,26 +1,15 @@
 // ===================================================
-// THREE-SCENE.JS (REVISED & REAL 3D REALIZATION)
-// Realizing the Space-Cyberpunk HR Network Look
+// THREE-SCENE.JS (FINAL PRO ULTRA 3D EFFECT SYSTEM)
 // ===================================================
 
-// ---------- Scene Setup ----------
 const scene = new THREE.Scene();
 scene.background = null;
+scene.fog = new THREE.FogExp2(0x020108, 0.001);
 
-// Deep galactic fog matching mockup background tones
-scene.fog = new THREE.FogExp2(0x03020d, 0.0012);
+// 3D ലുക്ക് വ്യക്തമാകാൻ ക്യാമറ പൊസിഷൻ സെറ്റ് ചെയ്യുന്നു
+const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 2000);
+camera.position.set(20, 0, 160); // Depth ദൂരം കൃത്യമാക്കി
 
-// ---------- Camera ----------
-const camera = new THREE.PerspectiveCamera(
-    55,
-    window.innerWidth / window.innerHeight,
-    0.1,
-    2000
-);
-// Repositioned to balance the split layout (Hero text on left, Profile on right)
-camera.position.set(20, 0, 150);
-
-// ---------- Renderer ----------
 const renderer = new THREE.WebGLRenderer({
     canvas: document.getElementById("bg-canvas"),
     alpha: true,
@@ -30,6 +19,7 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.outputEncoding = THREE.sRGBEncoding;
+renderer.toneMapping = THREE.NoToneMapping;
 
 const controls = new THREE.OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
@@ -37,24 +27,23 @@ controls.dampingFactor = 0.05;
 controls.enableZoom = false;
 controls.enablePan = false;
 
-// ---------- Bright Starfield & Nebulae Galaxy Cosmic Background ----------
-const STAR_COUNT = 4000;
+// ---------- നക്ഷത്രക്കൂട്ടങ്ങളും ഗാലക്സിയും (Cosmic Starfield) ----------
+const STAR_COUNT = 3500;
 const starGeometry = new THREE.BufferGeometry();
 const starVertices = [];
 const starColors = [];
-
-const colorPalette = [new THREE.Color(0x5ad1ff), new THREE.Color(0xa855f7), new THREE.Color(0xff4040)];
+const colorPalette = [new THREE.Color(0x00d2ff), new THREE.Color(0xbf26ff), new THREE.Color(0xff2a2a)];
 
 for (let i = 0; i < STAR_COUNT; i++) {
-    // Creating a flattened cosmic disc orientation instead of a simple random box
+    // 3D സ്പേസിൽ നക്ഷത്രങ്ങളെ പല അടരുകളായി (Layers) വിന്യസിക്കുന്നു
     const radius = Math.random() * 800;
     const theta = Math.random() * Math.PI * 2;
-    const phi = (Math.random() - 0.5) * 0.4; // flat
+    const phi = (Math.random() - 0.5) * 0.4;
 
     starVertices.push(
-        Math.cos(theta) * Math.sin(phi) * radius + 100, // biased slightly right towards profile
-        Math.sin(theta) * Math.sin(phi) * radius - 20,
-        Math.cos(phi) * radius - 300
+        Math.cos(theta) * Math.sin(phi) * radius + 80,
+        Math.sin(theta) * Math.sin(phi) * radius - 10,
+        Math.cos(phi) * radius - 200 // Z-axis depth നൽകുന്നു
     );
 
     const randomColor = colorPalette[Math.floor(Math.random() * colorPalette.length)];
@@ -65,60 +54,54 @@ starGeometry.setAttribute("position", new THREE.Float32BufferAttribute(starVerti
 starGeometry.setAttribute("color", new THREE.Float32BufferAttribute(starColors, 3));
 
 const starMaterial = new THREE.PointsMaterial({
-    size: 1.5,
+    size: 2.2,
     vertexColors: true,
     transparent: true,
-    opacity: 0.75,
+    opacity: 0.85,
     blending: THREE.AdditiveBlending,
     depthWrite: false
 });
-
 const starField = new THREE.Points(starGeometry, starMaterial);
 scene.add(starField);
 
-// ---------- Central Profile Neon Light Ring ----------
+// ---------- പ്രൊഫൈൽ നിയോൺ റിംഗ് (Glowing Anchor) ----------
 const ringRadius = 38;
-const ringGeometry = new THREE.RingGeometry(ringRadius, ringRadius + 1.2, 64);
+const ringGeometry = new THREE.RingGeometry(ringRadius, ringRadius + 1.8, 64);
 const ringMaterial = new THREE.MeshBasicMaterial({
-    color: 0xa855f7,
+    color: 0xbf26ff,
     side: THREE.DoubleSide,
     transparent: true,
-    opacity: 0.8,
+    opacity: 1.0,
     blending: THREE.AdditiveBlending
 });
 const profileRing3D = new THREE.Mesh(ringGeometry, ringMaterial);
-// Align positioning perfectly behind your profile photo container's layout
 profileRing3D.position.set(42, 22, 0); 
 scene.add(profileRing3D);
 
-// ---------- Morphing Liquid Glass Blobs ----------
+// ---------- ലിക്വിഡ് ഗ്ലാസ് ഒബ്ജക്റ്റുകൾ (Morphing Glass Blobs) ----------
 const glassGroup = new THREE.Group();
 const glassPositions = [
-    { x: -10, y: 55, z: 20, size: 10 },    // Top Left Orb
-    { x: 80, y: 45, z: 10, size: 12 },     // Top Right Orb
-    { x: -5, y: -10, z: 30, size: 14 },    // Mid Left Orb
-    { x: 95, y: -15, z: 15, size: 9 }      // Mid Right Orb
+    { x: -25, y: 45, z: 40, size: 11 },  // ഫോർഗ്രൗണ്ട് (മുന്നിൽ നിൽക്കുന്നവ)
+    { x: 90, y: 35, z: 20, size: 13 },
+    { x: -15, y: -20, z: 50, size: 14 }, // ക്യാമറയോട് ഏറ്റവും അടുത്ത ഒബ്ജക്റ്റ്
+    { x: 105, y: -25, z: 15, size: 10 }
 ];
 
 const glassMaterial = new THREE.MeshPhysicalMaterial({
     color: 0xffffff,
     transparent: true,
-    transmission: 0.9,
+    transmission: 0.96,
     opacity: 1.0,
-    roughness: 0.05,
+    roughness: 0.03,
     metalness: 0.1,
-    ior: 1.5,
-    thickness: 5.0,
+    ior: 1.65, 
+    thickness: 7.0,
     clearcoat: 1.0,
-    clearcoatRoughness: 0.05,
-    envMapIntensity: 2.0
+    clearcoatRoughness: 0.02
 });
 
 glassPositions.forEach((pos) => {
-    // Using Icosahedron for smooth, organic distortion capabilities
     const geom = new THREE.IcosahedronGeometry(pos.size, 4);
-    
-    // Store original coordinate array for displacement math
     const positionAttribute = geom.attributes.position;
     const originals = [];
     for (let i = 0; i < positionAttribute.count; i++) {
@@ -129,88 +112,94 @@ glassPositions.forEach((pos) => {
     const mesh = new THREE.Mesh(geom, glassMaterial);
     mesh.position.set(pos.x, pos.y, pos.z);
     mesh.userData = {
-        speed: 0.002 + Math.random() * 0.002,
+        speed: 0.003,
         offset: Math.random() * 10,
-        waveSpeed: 1.5 + Math.random() * 1.5
+        waveSpeed: 2.2
     };
     glassGroup.add(mesh);
 });
 scene.add(glassGroup);
 
-// ---------- HR Neural Network Roots & Data Glow Flows ----------
+// ---------- ന്യൂറൽ നെറ്റ്‌വർക്ക് ശാഖകൾ (Interactive Roots) ----------
 const networkGroup = new THREE.Group();
 const lineMaterial = new THREE.LineBasicMaterial({
-    color: 0x5ad1ff,
+    color: 0x00d2ff,
     transparent: true,
-    opacity: 0.35,
+    opacity: 0.55,
     blending: THREE.AdditiveBlending
 });
 
-const pulseGeometry = new THREE.SphereGeometry(0.7, 8, 8);
+const pulseGeometry = new THREE.SphereGeometry(0.9, 8, 8);
 const pulseMaterial = new THREE.MeshBasicMaterial({
-    color: 0xff3b3b,
+    color: 0xff1a1a,
     blending: THREE.AdditiveBlending
 });
 const pulses = [];
 
-// Branching out logic focused from the bottom of the profile ring center downwards
 function createNeuralRoot(startX, startY, startZ, length, angle, depth) {
     if (depth <= 0) return;
 
     const endX = startX + Math.cos(angle) * length;
     const endY = startY - Math.sin(angle) * length;
-    const endZ = startZ + (Math.random() - 0.5) * 12;
+    const endZ = startZ + (Math.random() - 0.5) * 20; // 3D സ്പേസിലേക്ക് പടരുന്നു
 
     const points = [new THREE.Vector3(startX, startY, startZ), new THREE.Vector3(endX, endY, endZ)];
     const branchGeom = new THREE.BufferGeometry().setFromPoints(points);
     const branch = new THREE.Line(branchGeom, lineMaterial);
     networkGroup.add(branch);
 
-    // Data pulse points (Red glow nodes traversing down the lines)
-    if (Math.random() > 0.2) {
+    if (Math.random() > 0.15) {
         const pulseMesh = new THREE.Mesh(pulseGeometry, pulseMaterial);
         pulseMesh.position.set(startX, startY, startZ);
         pulseMesh.userData = {
             start: points[0],
             end: points[1],
             progress: Math.random(),
-            speed: 0.003 + Math.random() * 0.004
+            speed: 0.006
         };
         pulses.push(pulseMesh);
         networkGroup.add(pulseMesh);
     }
 
-    // Branch variations mimicking layout graphic roots
     const childBranches = 2;
     for (let i = 0; i < childBranches; i++) {
-        const angleSpread = 0.35 + (Math.random() - 0.5) * 0.2;
+        const angleSpread = 0.38 + (Math.random() - 0.5) * 0.2;
         const nextAngle = i === 0 ? angle - angleSpread : angle + angleSpread;
-        createNeuralRoot(endX, endY, endZ, length * 0.78, nextAngle, depth - 1);
+        createNeuralRoot(endX, endY, endZ, length * 0.8, nextAngle, depth - 1);
     }
 }
-
-// Spawns roots explicitly originating from base of profile ring location (x: 42, y: -16)
-createNeuralRoot(42, -16, 0, 24, Math.PI / 2, 6);
+createNeuralRoot(42, -16, 0, 25, Math.PI / 2, 6);
 scene.add(networkGroup);
 
-// ---------- Lighting Additions ----------
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+// ---------- വെളിച്ചം (Super Lighting System) ----------
+const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
 scene.add(ambientLight);
 
-const blueGlow = new THREE.PointLight(0x42d4ff, 5, 300);
-blueGlow.position.set(42, 22, 30);
+const blueGlow = new THREE.PointLight(0x00d2ff, 15, 450);
+blueGlow.position.set(42, 22, 50);
 scene.add(blueGlow);
 
-const purpleGlow = new THREE.PointLight(0xa855f7, 4, 400);
-purpleGlow.position.set(-20, -20, 20);
+const purpleGlow = new THREE.PointLight(0xbf26ff, 12, 550);
+purpleGlow.position.set(-30, -30, 40);
 scene.add(purpleGlow);
 
-// ---------- Interactive Parallax System Setup ----------
+// ---------- 3D ക്യാമറ മൂവ്‌മെന്റ് സിസ്റ്റം (Mouse / Touch Parallax) ----------
 let mouseX = 0, mouseY = 0;
+let targetX = 0, targetY = 0;
+
 document.addEventListener("mousemove", (e) => {
+    // മൗസ് അനക്കുമ്പോൾ -1 മുതൽ 1 വരെയുള്ള വാല്യൂ കണക്കാക്കുന്നു
     mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
     mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
 });
+
+// മൊബൈൽ ഫോണുകൾക്കും 3D മൂവ്‌മെന്റ് സപ്പോർട്ട് നൽകുന്നു
+document.addEventListener("touchmove", (e) => {
+    if(e.touches.length > 0) {
+        mouseX = (e.touches[0].clientX / window.innerWidth - 0.5) * 2;
+        mouseY = (e.touches[0].clientY / window.innerHeight - 0.5) * 2;
+    }
+}, { passive: true });
 
 window.addEventListener("resize", () => {
     camera.aspect = window.innerWidth / window.innerHeight;
@@ -218,64 +207,55 @@ window.addEventListener("resize", () => {
     renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
-// ---------- Animation Core Loop ----------
 const clock = new THREE.Clock();
 
+// ---------- ആനിമേഷൻ റൺ ലൂപ്പ് ----------
 function animate() {
     requestAnimationFrame(animate);
     const t = clock.getElapsedTime();
 
-    // Constant slow rotation of cosmic background 
-    starField.rotation.y = t * 0.015;
-    starField.rotation.x = t * 0.005;
+    // ഗാലക്സി പതുക്കെ കറങ്ങുന്നു
+    starField.rotation.y = t * 0.008;
+    starField.rotation.x = t * 0.003;
+    
+    profileRing3D.material.opacity = 0.7 + Math.sin(t * 3.5) * 0.3;
 
-    // Pulse Ring Glow Oscillation Effect
-    profileRing3D.material.opacity = 0.5 + Math.sin(t * 3) * 0.2;
-
-    // Animate morphing liquid glass blobs (Vertex-level shifting wave distortions)
+    // ഗ്ലാസ് ബോൾസിന്റെ ലിക്വിഡ് വേവ് ചലനം
     glassGroup.children.forEach((mesh) => {
         mesh.rotation.y += mesh.userData.speed;
         mesh.rotation.x += mesh.userData.speed * 0.5;
+        mesh.position.y += Math.sin(t + mesh.userData.offset) * 0.06;
 
-        // Subtly float position up and down
-        mesh.position.y += Math.sin(t + mesh.userData.offset) * 0.04;
-
-        // Liquid fluid surface wave distortion simulation
         const posAttr = mesh.geometry.attributes.position;
         const originals = mesh.geometry.userData.originals;
         for (let i = 0; i < posAttr.count; i++) {
             const orig = originals[i];
-            // Multi-frequency wave addition to give a fluid look
-            const wave = Math.sin(orig.x * 0.2 + t * mesh.userData.waveSpeed) * Math.cos(orig.y * 0.2 + t * mesh.userData.waveSpeed) * 0.12;
-            
-            posAttr.setXYZ(
-                i,
-                orig.x + (orig.x * wave),
-                orig.y + (orig.y * wave),
-                orig.z + (orig.z * wave)
-            );
+            const wave = Math.sin(orig.x * 0.25 + t * mesh.userData.waveSpeed) * Math.cos(orig.y * 0.25 + t * mesh.userData.waveSpeed) * 0.16;
+            posAttr.setXYZ(i, orig.x + (orig.x * wave), orig.y + (orig.y * wave), orig.z + (orig.z * wave));
         }
         posAttr.needsUpdate = true;
     });
 
-    // Run active data packets along the neural track
+    // റെഡ് ലൈറ്റ് പൾസുകൾ ഓടുന്നു
     pulses.forEach((p) => {
         p.userData.progress += p.userData.speed;
         if (p.userData.progress > 1) p.userData.progress = 0;
         p.position.lerpVectors(p.userData.start, p.userData.end, p.userData.progress);
     });
 
-    // Smooth Interactive Mouse Parallax (Moves camera gently based on viewport mouse offsets)
-    const targetCamX = 20 + (mouseX * 25);
-    const targetCamY = -(mouseY * 20);
-    camera.position.x += (targetCamX - camera.position.x) * 0.05;
-    camera.position.y += (targetCamY - camera.position.y) * 0.05;
+    // 🔴 ക്രൂശ്യൽ ക്യാമറ മൂവ്‌മെന്റ് ലോജിക് (Y-Axis & X-Axis Tilt)
+    // മൗസ് ചലനത്തിന് അനുസരിച്ച് ക്യാമറയുടെ ലക്ഷ്യം (Target Location) മാറുന്നു
+    targetX += (mouseX * 45 - targetX) * 0.05; // 45 ഡിഗ്രി വരെ മൂവ്മെന്റ് വ്യാപ്തി കൂട്ടിക്കൊടുത്തു
+    targetY += (-mouseY * 35 - targetY) * 0.05;
+
+    camera.position.x = 20 + targetX;
+    camera.position.y = targetY;
+    
+    // ക്യാമറ എപ്പോഴും സ്ക്രീനിന്റെ മധ്യഭാഗത്തേക്ക് ഫോക്കസ് ചെയ്തു നിൽക്കും
     camera.lookAt(20, 0, 0);
 
     controls.update();
     renderer.render(scene, camera);
 }
 
-// Init animation loop execution
 animate();
-
