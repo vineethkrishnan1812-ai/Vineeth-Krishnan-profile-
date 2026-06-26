@@ -1,12 +1,12 @@
 // ===================================================
-// THREE-SCENE.JS (SCROLL-DRIVEN 3D NEURAL SPINAL NETWORK)
+// THREE-SCENE.JS (SCROLL-DRIVEN 3D SPINAL COORD NETWORK)
 // ===================================================
 
 const scene = new THREE.Scene();
 scene.background = null;
 scene.fog = new THREE.FogExp2(0x010005, 0.0012);
 
-// Camera configuration for deep 3D space illusion
+// Camera viewport configuration for organic 3D depth perception
 const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 2000);
 camera.position.set(20, 0, 160); 
 
@@ -27,7 +27,7 @@ controls.dampingFactor = 0.05;
 controls.enableZoom = false;
 controls.enablePan = false;
 
-// ---------- Scroll Tracking Metrics ----------
+// ---------- Live Document Scroll Vector Tracking ----------
 let scrollPercent = 0;
 window.addEventListener('scroll', () => {
     const h = document.documentElement, 
@@ -37,7 +37,7 @@ window.addEventListener('scroll', () => {
     scrollPercent = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight);
 });
 
-// ---------- Cosmic Deep Space Starfield ----------
+// ---------- Volumetric Galaxy Starfield Layers ----------
 const STAR_COUNT = 3000;
 const starGeometry = new THREE.BufferGeometry();
 const starVertices = [];
@@ -52,7 +52,7 @@ for (let i = 0; i < STAR_COUNT; i++) {
     starVertices.push(
         Math.cos(theta) * Math.sin(phi) * radius + 80,
         Math.sin(theta) * Math.sin(phi) * radius - 10,
-        Math.cos(phi) * radius - 150 // Provides spatial depth along Z-axis
+        Math.cos(phi) * radius - 150 // Disperses layers into the Z-axis background
     );
 
     const randomColor = colorPalette[Math.floor(Math.random() * colorPalette.length)];
@@ -72,7 +72,7 @@ const starMaterial = new THREE.PointsMaterial({
 const starField = new THREE.Points(starGeometry, starMaterial);
 scene.add(starField);
 
-// ---------- Profile Neon Anchor Ring ----------
+// ---------- Profile Neon Glowing Ring ----------
 const ringGeometry = new THREE.RingGeometry(38, 40, 64);
 const ringMaterial = new THREE.MeshBasicMaterial({
     color: 0xbf26ff,
@@ -85,7 +85,7 @@ const profileRing3D = new THREE.Mesh(ringGeometry, ringMaterial);
 profileRing3D.position.set(42, 22, 0); 
 scene.add(profileRing3D);
 
-// ---------- Morphing Fluid Glass Blobs ----------
+// ---------- Morphing Realtime Liquid Glass Blobs ----------
 const glassGroup = new THREE.Group();
 const glassPositions = [
     { x: -30, y: 40, z: 50, size: 10 },
@@ -114,7 +114,7 @@ glassPositions.forEach((pos) => {
 });
 scene.add(glassGroup);
 
-// ---------- Spinal Cord & Neural Vein Structures ----------
+// ---------- Spinal Cord & Procedural Nerve Veins ----------
 const networkGroup = new THREE.Group();
 const veins = [];
 
@@ -125,20 +125,20 @@ const lineMaterial = new THREE.LineBasicMaterial({
     blending: THREE.AdditiveBlending
 });
 
-// Recursive procedural tree logic modeling complex spinal nerve branches
+// Generates an interactive, branching spinal cluster along spatial parameters
 function createSpinalVein(startX, startY, startZ, length, angle, depth) {
     if (depth <= 0) return;
 
     const endX = startX + Math.cos(angle) * length;
     const endY = startY - Math.sin(angle) * length;
-    const endZ = startZ + (Math.random() - 0.5) * 25; // Expands into 3D volume
+    const endZ = startZ + (Math.random() - 0.5) * 25; 
 
     const points = [new THREE.Vector3(startX, startY, startZ), new THREE.Vector3(endX, endY, endZ)];
     const branchGeom = new THREE.BufferGeometry().setFromPoints(points);
     const branch = new THREE.Line(branchGeom, lineMaterial);
     networkGroup.add(branch);
 
-    // Maps out positions for precise scroll lighting intersections
+    // Collects segment heights for scroll pulse intersection math
     veins.push({
         mesh: branch,
         depth: depth,
@@ -154,11 +154,11 @@ function createSpinalVein(startX, startY, startZ, length, angle, depth) {
     }
 }
 
-// Spawns tracking routes exactly below the profile element boundary
+// Drops roots precisely from the bottom alignment coordinates of your header profile
 createSpinalVein(42, -16, 0, 26, Math.PI / 2, 6);
 scene.add(networkGroup);
 
-// ---------- Light Orchestration ----------
+// ---------- Environmental Lighting Setup ----------
 const ambientLight = new THREE.AmbientLight(0xffffff, 1.0);
 scene.add(ambientLight);
 
@@ -170,11 +170,11 @@ const purpleGlow = new THREE.PointLight(0xbf26ff, 12, 550);
 purpleGlow.position.set(-30, -30, 40);
 scene.add(purpleGlow);
 
-// High intensity light scanner moving downward tracking scroll velocity
+// Intense laser tracking light linked to scroll speeds
 const scrollPulseGlow = new THREE.PointLight(0xff1a1a, 25, 120); 
 scene.add(scrollPulseGlow);
 
-// ---------- Mouse Parallax Vectors ----------
+// ---------- Mouse Pointer Parallax Logic ----------
 let mouseX = 0, mouseY = 0;
 let targetX = 0, targetY = 0;
 
@@ -191,16 +191,16 @@ window.addEventListener("resize", () => {
 
 const clock = new THREE.Clock();
 
-// ---------- Realtime Rendering Animation Core ----------
+// ---------- Global Animation Loop Controller ----------
 function animate() {
     requestAnimationFrame(animate);
     const t = clock.getElapsedTime();
 
-    // 1. Scroll-Driven 3D Perspective Adjustments (Camera Cinematic Zoom)
-    const targetCamZ = 160 - (scrollPercent * 90); // Zooms progressively deeper into 3D field
-    const targetCamY = -(scrollPercent * 110);     // Descends scene tracking document scroll height
+    // 1. Scroll-Driven 3D Matrix Transformations (Cinematic Camera Zoom)
+    const targetCamZ = 160 - (scrollPercent * 90); // Travels inward into Z-plane depths
+    const targetCamY = -(scrollPercent * 110);     // Translates downward across document view fields
 
-    // Interpolates mouse offsets into camera matrix safely
+    // Blends pointer offsets cleanly with current scroll vectors
     targetX += (mouseX * 30 - targetX) * 0.05;
     targetY += (-mouseY * 25 - targetY) * 0.05;
 
@@ -210,27 +210,27 @@ function animate() {
     
     camera.lookAt(20, -(scrollPercent * 80), 0);
 
-    // 2. Active Intersectional Pulse Calculations (Vein Glow Simulation)
+    // 2. Realtime Positional Nerve Light Ignition
     const pulseYPosition = 20 - (scrollPercent * 160);
     scrollPulseGlow.position.set(42, pulseYPosition, Math.sin(t) * 10);
     
-    // Updates node coloring properties dynamically as scanner overlaps coordinates
+    // Updates node color states dynamically as scanner passes coordinate parameters
     veins.forEach((vein) => {
         const distance = Math.abs(vein.startY - pulseYPosition);
         if (distance < 35) {
             vein.mesh.material.opacity = 0.9;
-            vein.mesh.material.color.setHex(0xff2a2a); // Converts track to laser red
+            vein.mesh.material.color.setHex(0xff2a2a); // Fires laser red pulse down the path
         } else {
             vein.mesh.material.opacity = 0.35;
-            vein.mesh.material.color.setHex(0x00d2ff); // Safe standard Cyan state
+            vein.mesh.material.color.setHex(0x00d2ff); // Restores baseline glowing cyan
         }
     });
 
-    // 3. Environmental Background Rotations
+    // 3. Asset Matrix Rotations
     starField.rotation.y = t * 0.005 + (scrollPercent * 0.05); 
     profileRing3D.material.opacity = 0.7 + Math.sin(t * 3.5) * 0.3;
 
-    // Organic liquid glass deformation engine
+    // Organic liquid vertex manipulation formulas on glass geometries
     glassGroup.children.forEach((mesh) => {
         mesh.rotation.y += mesh.userData.speed;
         mesh.position.y += Math.sin(t + mesh.userData.offset) * 0.05;
@@ -250,3 +250,4 @@ function animate() {
 }
 
 animate();
+
