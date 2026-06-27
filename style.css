@@ -2958,3 +2958,20 @@ html{
 scroll-padding-top:100px;
 
 }
+@media(max-width:768px){
+
+.hero{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+.hero-right{
+
+margin-bottom:40px;
+
+}
+
+}
