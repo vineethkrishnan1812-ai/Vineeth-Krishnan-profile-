@@ -2989,3 +2989,317 @@ text-decoration:none;
 color:#ff6666;
 
 }
+/* ===================================================
+   V8 ADD-ON
+   PROFILE + ROOT NETWORK
+===================================================*/
+
+/* Profile */
+
+.photo-ring{
+
+position:relative;
+
+width:420px;
+
+height:420px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+margin:auto;
+
+}
+
+.profile-photo{
+
+width:360px;
+
+height:360px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+border:5px solid rgba(255,255,255,.15);
+
+box-shadow:
+
+0 0 80px rgba(255,0,0,.30),
+
+0 25px 70px rgba(0,0,0,.45);
+
+position:relative;
+
+z-index:5;
+
+}
+
+.ring-glow{
+
+position:absolute;
+
+width:420px;
+
+height:420px;
+
+border-radius:50%;
+
+border:2px solid rgba(255,60,60,.5);
+
+box-shadow:
+
+0 0 40px #ff4444,
+
+inset 0 0 40px rgba(255,60,60,.3);
+
+animation:ringRotate 12s linear infinite;
+
+}
+
+@keyframes ringRotate{
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+
+/* Floating Cards */
+
+.floating-card{
+
+position:absolute;
+
+padding:10px 18px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:40px;
+
+color:#fff;
+
+font-size:14px;
+
+display:flex;
+
+gap:10px;
+
+align-items:center;
+
+box-shadow:0 0 25px rgba(255,0,0,.15);
+
+}
+
+.card1{
+
+top:10px;
+
+left:-40px;
+
+}
+
+.card2{
+
+top:70px;
+
+right:-60px;
+
+}
+
+.card3{
+
+bottom:120px;
+
+left:-60px;
+
+}
+
+.card4{
+
+bottom:40px;
+
+right:-40px;
+
+}
+
+.card5{
+
+top:180px;
+
+right:-80px;
+
+}
+
+
+/* Root Line */
+
+.root-line{
+
+position:relative;
+
+width:4px;
+
+height:140px;
+
+margin:auto;
+
+background:linear-gradient(
+
+180deg,
+
+transparent,
+
+#ff3d3d,
+
+#8b0000,
+
+transparent
+
+);
+
+box-shadow:
+
+0 0 30px rgba(255,0,0,.6);
+
+}
+
+.root-line::before{
+
+content:"";
+
+position:absolute;
+
+left:50%;
+
+top:0;
+
+width:140px;
+
+height:140px;
+
+transform:translateX(-50%);
+
+background:
+
+radial-gradient(circle,
+
+rgba(255,60,60,.25),
+
+transparent 70%);
+
+filter:blur(25px);
+
+}
+
+.root-dot{
+
+width:14px;
+
+height:14px;
+
+border-radius:50%;
+
+background:#ff4444;
+
+margin:25px auto;
+
+box-shadow:
+
+0 0 20px #ff4444;
+
+animation:pulse 2s infinite;
+
+}
+
+@keyframes pulse{
+
+50%{
+
+transform:scale(1.5);
+
+opacity:.5;
+
+}
+
+}
+
+
+/* Contact Box */
+
+.contact-box{
+
+display:block;
+
+padding:35px;
+
+border-radius:25px;
+
+background:rgba(255,255,255,.05);
+
+backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,255,255,.08);
+
+text-align:center;
+
+text-decoration:none;
+
+color:#fff;
+
+transition:.4s;
+
+}
+
+.contact-box:hover{
+
+transform:translateY(-10px);
+
+box-shadow:
+
+0 0 35px rgba(255,0,0,.25);
+
+}
+
+
+/* Footer */
+
+.footer-social{
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+margin:20px 0;
+
+}
+
+.footer-social a{
+
+color:#fff;
+
+font-size:22px;
+
+transition:.35s;
+
+}
+
+.footer-social a:hover{
+
+color:#ff4444;
+
+transform:translateY(-5px);
+
+}
