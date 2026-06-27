@@ -1,5 +1,6 @@
 /* ==========================================
-   THREE-SCENE.JS V9
+   THREE SCENE V10
+   LUXURY FLOATING LIGHTS
    PART 1
 ========================================== */
 
@@ -8,17 +9,17 @@ const canvas = document.getElementById("bg-canvas");
 const scene = new THREE.Scene();
 
 const camera = new THREE.PerspectiveCamera(
-60,
-window.innerWidth/window.innerHeight,
-1,
+45,
+window.innerWidth / window.innerHeight,
+0.1,
 1000
 );
 
-camera.position.z = 120;
+camera.position.z = 30;
 
 const renderer = new THREE.WebGLRenderer({
 
-canvas,
+canvas:canvas,
 
 alpha:true,
 
@@ -37,94 +38,105 @@ window.innerHeight
 );
 
 /* ===========================
-   PARTICLES
+   LIGHTING
 =========================== */
 
-const particleCount = 700;
+scene.add(
 
-const geometry = new THREE.BufferGeometry();
-
-const positions = [];
-
-const colors = [];
-
-for(let i=0;i<particleCount;i++){
-
-positions.push(
-
-(Math.random()-0.5)*500,
-
-(Math.random()-0.5)*500,
-
-(Math.random()-0.5)*500
-
-);
-
-colors.push(
-
-1,
-
-0.18 + Math.random()*0.3,
-
-0.25
-
-);
-
-}
-
-geometry.setAttribute(
-
-"position",
-
-new THREE.Float32BufferAttribute(
-
-positions,
-
-3
-
+new THREE.AmbientLight(
+0xffffff,
+0.45
 )
 
 );
 
-geometry.setAttribute(
-
-"color",
-
-new THREE.Float32BufferAttribute(
-
-colors,
-
-3
-
-)
-
+const redLight = new THREE.PointLight(
+0xff3b3b,
+3,
+80
 );
 
-const material = new THREE.PointsMaterial({
+redLight.position.set(8,8,12);
 
-size:2.5,
+scene.add(redLight);
 
-vertexColors:true,
+const redLight2 = new THREE.PointLight(
+0x8b0000,
+2,
+80
+);
+
+redLight2.position.set(-8,-6,10);
+
+scene.add(redLight2);
+
+/* ===========================
+   GLOWING ORBS
+=========================== */
+
+const orbMaterial = new THREE.MeshBasicMaterial({
+
+color:0xff4a4a,
 
 transparent:true,
 
-opacity:0.8
+opacity:0.18
 
 });
 
-const particles = new THREE.Points(
+const orbs=[];
 
-geometry,
+for(let i=0;i<18;i++){
 
-material
+const orb = new THREE.Mesh(
+
+new THREE.SphereGeometry(
+
+0.35 + Math.random()*0.45,
+
+32,
+
+32
+
+),
+
+orbMaterial.clone()
 
 );
 
-scene.add(particles);
+orb.position.set(
+
+(Math.random()-0.5)*28,
+
+(Math.random()-0.5)*18,
+
+(Math.random()-0.5)*12
+
+);
+
+orb.material.opacity =
+
+0.08 + Math.random()*0.18;
+
+scene.add(orb);
+
+orbs.push({
+
+mesh:orb,
+
+speed:0.15 + Math.random()*0.35,
+
+offset:Math.random()*10
+
+});
+
+}
 /* ==========================================
    PART 2
-   ANIMATION + PARALLAX
+   FLOATING ANIMATION
 ========================================== */
+
+const clock = new THREE.Clock();
 
 const mouse = {
 
@@ -141,10 +153,6 @@ mouse.x = (e.clientX / window.innerWidth - 0.5) * 2;
 mouse.y = (e.clientY / window.innerHeight - 0.5) * 2;
 
 });
-
-/* ===========================
-   RESIZE
-=========================== */
 
 window.addEventListener("resize",()=>{
 
@@ -163,30 +171,80 @@ window.innerHeight
 });
 
 /* ===========================
-   ANIMATION LOOP
+   ANIMATE
 =========================== */
 
 function animate(){
 
 requestAnimationFrame(animate);
 
-/* Rotate particles */
+const t = clock.getElapsedTime();
 
-particles.rotation.y += 0.0007;
+/* Floating Orbs */
 
-particles.rotation.x += 0.00025;
+orbs.forEach((orb,index)=>{
 
-/* Mouse parallax */
+orb.mesh.position.y +=
 
-camera.position.x += (mouse.x * 10 - camera.position.x) * 0.03;
+Math.sin(
 
-camera.position.y += (-mouse.y * 8 - camera.position.y) * 0.03;
+t * orb.speed + orb.offset
+
+) * 0.003;
+
+orb.mesh.position.x +=
+
+Math.cos(
+
+t * orb.speed + orb.offset
+
+) * 0.0015;
+
+orb.mesh.scale.setScalar(
+
+1 + Math.sin(
+
+t + index
+
+) * 0.08
+
+);
+
+});
+
+/* Camera Breathing */
+
+camera.position.x +=
+
+(mouse.x * 1.5 - camera.position.x)
+
+* 0.02;
+
+camera.position.y +=
+
+(-mouse.y * 1.2 - camera.position.y)
+
+* 0.02;
 
 camera.lookAt(scene.position);
 
-/* Floating effect */
+/* Gentle Light Motion */
 
-particles.position.y = Math.sin(Date.now()*0.0002) * 5;
+redLight.position.x =
+
+Math.sin(t * 0.4) * 10;
+
+redLight.position.y =
+
+Math.cos(t * 0.3) * 6;
+
+redLight2.position.x =
+
+Math.cos(t * 0.25) * -10;
+
+redLight2.position.y =
+
+Math.sin(t * 0.35) * -6;
 
 renderer.render(scene,camera);
 
