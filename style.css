@@ -3303,3 +3303,124 @@ color:#ff4444;
 transform:translateY(-5px);
 
 }
+/* =====================================
+   PREMIUM PROFILE RING V2
+===================================== */
+
+.hero-right{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+position:relative;
+
+}
+
+.photo-ring{
+
+position:relative;
+
+width:430px;
+
+height:430px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+.profile-photo{
+
+width:340px;
+
+height:340px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+position:relative;
+
+z-index:5;
+
+border:6px solid rgba(255,255,255,.12);
+
+box-shadow:
+
+0 0 45px rgba(255,0,0,.35),
+
+0 25px 60px rgba(0,0,0,.45);
+
+}
+
+/* OUTER RING */
+
+.photo-ring::before{
+
+content:"";
+
+position:absolute;
+
+width:390px;
+
+height:390px;
+
+border-radius:50%;
+
+border:2px solid rgba(255,60,60,.45);
+
+box-shadow:
+
+0 0 25px #ff4444,
+
+0 0 60px rgba(255,0,0,.35);
+
+animation:ringRotate 15s linear infinite;
+
+}
+
+/* INNER RING */
+
+.photo-ring::after{
+
+content:"";
+
+position:absolute;
+
+width:360px;
+
+height:360px;
+
+border-radius:50%;
+
+border:2px dashed rgba(255,255,255,.18);
+
+animation:ringRotateReverse 10s linear infinite;
+
+}
+
+@keyframes ringRotate{
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+@keyframes ringRotateReverse{
+
+100%{
+
+transform:rotate(-360deg);
+
+}
+
+}
