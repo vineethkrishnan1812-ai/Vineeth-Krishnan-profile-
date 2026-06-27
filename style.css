@@ -2975,3 +2975,17 @@ margin-bottom:40px;
 }
 
 }
+.contact-link,
+.contact-link a{
+
+color:#ffffff;
+
+text-decoration:none;
+
+}
+
+.contact-link:hover{
+
+color:#ff6666;
+
+}
