@@ -477,3 +477,22 @@ console.log(
 "color:#42d4ff;font-size:18px;font-weight:bold;"
 
 );
+document.addEventListener("mousemove",(e)=>{
+
+document.body.style.setProperty(
+
+"--mouse-x",
+
+e.clientX+"px"
+
+);
+
+document.body.style.setProperty(
+
+"--mouse-y",
+
+e.clientY+"px"
+
+);
+
+});
