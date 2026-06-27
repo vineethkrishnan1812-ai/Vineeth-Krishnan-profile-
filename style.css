@@ -376,3 +376,289 @@ translate(-40px,40px);
 }
 
 }
+/* ==================================================
+   STYLE.CSS V7
+   PART 3
+   PREMIUM NAVBAR + HERO
+================================================== */
+
+/* ===========================
+NAVBAR
+=========================== */
+
+.navbar{
+
+position:fixed;
+
+top:20px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+width:92%;
+
+max-width:1450px;
+
+height:74px;
+
+padding:0 30px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+background:rgba(15,15,15,.55);
+
+backdrop-filter:blur(30px);
+
+-webkit-backdrop-filter:blur(30px);
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:22px;
+
+box-shadow:
+
+0 10px 40px rgba(0,0,0,.45),
+
+0 0 30px rgba(179,18,23,.12);
+
+z-index:999;
+
+}
+
+/* ===========================
+LOGO
+=========================== */
+
+.logo{
+
+display:flex;
+
+align-items:center;
+
+gap:14px;
+
+font-size:30px;
+
+font-weight:700;
+
+letter-spacing:1px;
+
+}
+
+.logo-dot{
+
+width:16px;
+
+height:16px;
+
+border-radius:50%;
+
+background:linear-gradient(
+135deg,
+#ff5a5a,
+#b31217);
+
+box-shadow:
+
+0 0 18px #ff3d3d,
+
+0 0 35px rgba(255,0,60,.45);
+
+}
+
+/* ===========================
+MENU
+=========================== */
+
+.navbar nav ul{
+
+display:flex;
+
+list-style:none;
+
+gap:35px;
+
+}
+
+.navbar nav ul li a{
+
+text-decoration:none;
+
+color:#fff;
+
+font-weight:500;
+
+transition:.35s;
+
+}
+
+.navbar nav ul li a:hover{
+
+color:#ff5a5a;
+
+}
+
+/* ===========================
+RESUME BUTTON
+=========================== */
+
+.resume-btn{
+
+padding:14px 28px;
+
+border-radius:50px;
+
+background:linear-gradient(
+135deg,
+#ff4d4d,
+#7a0000);
+
+color:#fff;
+
+font-weight:600;
+
+text-decoration:none;
+
+box-shadow:
+
+0 0 25px rgba(255,60,60,.35);
+
+transition:.35s;
+
+}
+
+.resume-btn:hover{
+
+transform:translateY(-4px);
+
+box-shadow:
+
+0 0 40px rgba(255,60,60,.55);
+
+}
+
+/* ===========================
+HERO
+=========================== */
+
+.hero{
+
+min-height:100vh;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:140px 8% 80px;
+
+gap:80px;
+
+}
+
+.hero-left{
+
+flex:1;
+
+}
+
+.hero-right{
+
+flex:1;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+.status-pill{
+
+display:inline-flex;
+
+align-items:center;
+
+gap:12px;
+
+padding:10px 22px;
+
+border-radius:50px;
+
+background:rgba(255,50,60,.10);
+
+border:1px solid rgba(255,50,60,.22);
+
+margin-bottom:25px;
+
+}
+
+.green-dot{
+
+width:10px;
+
+height:10px;
+
+border-radius:50%;
+
+background:#00ff66;
+
+box-shadow:0 0 15px #00ff66;
+
+}
+
+.hero h1{
+
+font-size:84px;
+
+font-weight:800;
+
+line-height:1;
+
+margin-bottom:15px;
+
+}
+
+.hero h1 span{
+
+display:block;
+
+background:linear-gradient(
+90deg,
+#ff8a8a,
+#ff3b3b);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+}
+
+.hero h2{
+
+font-size:34px;
+
+color:#ff6666;
+
+margin-bottom:22px;
+
+}
+
+.hero p{
+
+max-width:620px;
+
+font-size:18px;
+
+line-height:1.9;
+
+color:#d9d9d9;
+
+}
