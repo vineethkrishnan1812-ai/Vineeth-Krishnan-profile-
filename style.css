@@ -381,7 +381,6 @@ translate(-40px,40px);
    PART 3
    PREMIUM NAVBAR + HERO
 ================================================== */
-
 /* ===========================
 NAVBAR
 =========================== */
@@ -807,8 +806,7 @@ animation:profilePulse 5s ease-in-out infinite;
 position:absolute;
 
 width:440px;
-
-height:440px;
+   height:440px;
 
 border-radius:50%;
 
@@ -1252,8 +1250,7 @@ SKILLS GRID
 display:grid;
 
 grid-template-columns:repeat(3,1fr);
-
-gap:35px;
+   gap:35px;
 
 margin-top:50px;
 
@@ -1693,8 +1690,7 @@ radial-gradient(
 circle,
 
 rgba(255,60,60,.20),
-
-transparent 70%
+   transparent 70%
 
 );
 
@@ -2295,8 +2291,7 @@ flex-direction:column;
 text-align:center;
 
 }
-
-}
+   }
 /* ==================================================
    STYLE.CSS V7
    PART 9
@@ -2762,8 +2757,7 @@ display:flex;
 align-items:center;
 
 justify-content:center;
-
-text-decoration:none;
+   text-decoration:none;
 
 color:#fff;
 
