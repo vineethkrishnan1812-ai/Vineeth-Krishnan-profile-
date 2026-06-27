@@ -104,13 +104,38 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
+            gap: 3rem;
             padding: 0 2rem;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
         .hero-content {
             max-width: 600px;
+            flex: 1;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 107, 107, 0.4);
+            box-shadow: 0 0 40px rgba(255, 107, 107, 0.3), 0 20px 60px rgba(255, 107, 107, 0.15);
+            object-fit: cover;
+            transition: all 0.3s;
+        }
+
+        .hero-image img:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 60px rgba(255, 107, 107, 0.5), 0 30px 80px rgba(255, 107, 107, 0.25);
         }
 
         .hero-subtitle {
@@ -303,6 +328,15 @@
                 width: 100%;
             }
 
+            .hero {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .hero-image img {
+                max-width: 280px;
+            }
+
             .hero-title {
                 font-size: 2.5rem;
             }
@@ -348,22 +382,31 @@
                     <button class="btn">Download Resume</button>
                 </div>
             </div>
+            <div class="hero-image">
+                <img src="https://vineethworks.github.io/portfolio/assets/Profile.jpg" alt="Vineeth Krishnan - HR & Finance Professional">
+            </div>
         </div>
 
         <section id="about">
             <h2 class="section-title">ABOUT <span>ME</span></h2>
-            <div style="max-width: 800px; margin: 0 auto;">
-                <p style="font-size: 1.1rem; line-height: 1.8; color: #cccccc; margin-bottom: 2rem;">
+            <div style="max-width: 900px; margin: 0 auto;">
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #cccccc; margin-bottom: 3rem; text-align: center;">
                     MBA graduate specializing in Human Resources & Finance with practical experience in Recruitment, Payroll, Employee Relations and HR Operations. Passionate about leveraging modern HR practices to drive organizational growth and employee development.
                 </p>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
-                    <div>
-                        <h3 style="color: #FF6B6B; margin-bottom: 1rem;">📍 Location</h3>
-                        <p>Alappuzha, Kerala<br><small style="color: #999;">Open to Relocation</small></p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                    <div style="background: rgba(255, 107, 107, 0.05); border: 1px solid rgba(255, 107, 107, 0.2); padding: 2rem; border-radius: 8px; backdrop-filter: blur(10px); text-align: center; transition: all 0.3s;">
+                        <h3 style="color: #FF6B6B; margin-bottom: 1rem; font-size: 1.2rem; font-weight: 600;">📍 Location</h3>
+                        <p style="font-size: 1rem; color: #ffffff; font-weight: 500; margin-bottom: 0.5rem;">Alappuzha, Kerala</p>
+                        <p style="color: #999; font-size: 0.95rem;">Open to Relocation</p>
                     </div>
-                    <div>
-                        <h3 style="color: #FF6B6B; margin-bottom: 1rem;">💪 Core Strengths</h3>
-                        <p>Leadership • Communication<br>Teamwork • Problem Solving</p>
+                    <div style="background: rgba(255, 107, 107, 0.05); border: 1px solid rgba(255, 107, 107, 0.2); padding: 2rem; border-radius: 8px; backdrop-filter: blur(10px); text-align: center; transition: all 0.3s;">
+                        <h3 style="color: #FF6B6B; margin-bottom: 1rem; font-size: 1.2rem; font-weight: 600;">💼 Current Status</h3>
+                        <p style="font-size: 1rem; color: #ffffff; font-weight: 500; margin-bottom: 0.5rem;">MBA Student</p>
+                        <p style="color: #999; font-size: 0.95rem;">APJ Abdul Kalam Technological University</p>
+                    </div>
+                    <div style="background: rgba(255, 107, 107, 0.05); border: 1px solid rgba(255, 107, 107, 0.2); padding: 2rem; border-radius: 8px; backdrop-filter: blur(10px); text-align: center; transition: all 0.3s;">
+                        <h3 style="color: #FF6B6B; margin-bottom: 1rem; font-size: 1.2rem; font-weight: 600;">💪 Core Strengths</h3>
+                        <p style="font-size: 0.95rem; color: #cccccc;">Leadership • Communication<br>Teamwork • Problem Solving</p>
                     </div>
                 </div>
             </div>
@@ -527,238 +570,4 @@
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; max-width: 800px; margin: 0 auto; text-align: center;">
                 <div>
                     <h3 style="color: #FF6B6B; margin-bottom: 1rem;">📧 Email</h3>
-                    <p style="color: #cccccc;">vineethkrishnan2000@gmail.com</p>
-                </div>
-                <div>
-                    <h3 style="color: #FF6B6B; margin-bottom: 1rem;">📱 Phone</h3>
-                    <p style="color: #cccccc;">+91 85920 13885</p>
-                </div>
-                <div>
-                    <h3 style="color: #FF6B6B; margin-bottom: 1rem;">💼 LinkedIn</h3>
-                    <p style="color: #cccccc;">vineeth-krishnan-057180303</p>
-                </div>
-            </div>
-        </section>
-
-        <footer>
-            <p>© 2026 Vineeth Krishnan. All Rights Reserved.</p>
-        </footer>
-    </div>
-
-    <script>
-        // 3D Background Animation
-        const container = document.getElementById('three-container');
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setPixelRatio(window.devicePixelRatio);
-        renderer.setClearColor(0x0a0505, 0);
-        container.appendChild(renderer.domElement);
-
-        camera.position.z = 60;
-
-        // Lighting
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
-        scene.add(ambientLight);
-
-        const pointLight1 = new THREE.PointLight(0xFF6B6B, 1, 200);
-        pointLight1.position.set(50, 50, 50);
-        scene.add(pointLight1);
-
-        const pointLight2 = new THREE.PointLight(0xff8787, 0.8, 200);
-        pointLight2.position.set(-50, -50, 50);
-        scene.add(pointLight2);
-
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.3);
-        directionalLight.position.set(0, 1, 1);
-        scene.add(directionalLight);
-
-        // Create 3D objects
-        const objects = [];
-        
-        const icosahedronGeometry = new THREE.IcosahedronGeometry(8, 4);
-        const icosahedronMaterial = new THREE.MeshStandardMaterial({
-            color: 0xFF6B6B,
-            emissive: 0xFF6B6B,
-            emissiveIntensity: 0.3,
-            metalness: 0.6,
-            roughness: 0.4
-        });
-
-        const icosahedron1 = new THREE.Mesh(icosahedronGeometry, icosahedronMaterial);
-        icosahedron1.position.set(-30, 20, -20);
-        scene.add(icosahedron1);
-        objects.push({
-            mesh: icosahedron1,
-            rotationSpeed: { x: 0.002, y: 0.003, z: 0.001 }
-        });
-
-        const octahedronGeometry = new THREE.OctahedronGeometry(6, 2);
-        const octahedronMaterial = new THREE.MeshStandardMaterial({
-            color: 0xff8787,
-            emissive: 0xFF6B6B,
-            emissiveIntensity: 0.25,
-            metalness: 0.7,
-            roughness: 0.3
-        });
-
-        const octahedron1 = new THREE.Mesh(octahedronGeometry, octahedronMaterial);
-        octahedron1.position.set(35, -15, -30);
-        scene.add(octahedron1);
-        objects.push({
-            mesh: octahedron1,
-            rotationSpeed: { x: 0.001, y: 0.002, z: 0.003 }
-        });
-
-        const torusGeometry = new THREE.TorusGeometry(10, 3, 16, 100);
-        const torusMaterial = new THREE.MeshStandardMaterial({
-            color: 0xFF6B6B,
-            emissive: 0xFF6B6B,
-            emissiveIntensity: 0.2,
-            metalness: 0.8,
-            roughness: 0.2
-        });
-
-        const torus1 = new THREE.Mesh(torusGeometry, torusMaterial);
-        torus1.position.set(0, 30, -40);
-        torus1.rotation.x = Math.PI / 4;
-        scene.add(torus1);
-        objects.push({
-            mesh: torus1,
-            rotationSpeed: { x: 0.003, y: 0.001, z: 0.002 }
-        });
-
-        const tetrahedronGeometry = new THREE.TetrahedronGeometry(7, 3);
-        const tetrahedronMaterial = new THREE.MeshStandardMaterial({
-            color: 0xff6b6b,
-            emissive: 0xFF6B6B,
-            emissiveIntensity: 0.35,
-            metalness: 0.5,
-            roughness: 0.5
-        });
-
-        const tetrahedron1 = new THREE.Mesh(tetrahedronGeometry, tetrahedronMaterial);
-        tetrahedron1.position.set(-35, -25, -35);
-        scene.add(tetrahedron1);
-        objects.push({
-            mesh: tetrahedron1,
-            rotationSpeed: { x: 0.002, y: 0.001, z: 0.004 }
-        });
-
-        // Particles
-        const particleCount = 150;
-        const particlesGeometry = new THREE.BufferGeometry();
-        const positions = new Float32Array(particleCount * 3);
-        const particleVelocities = [];
-
-        for (let i = 0; i < particleCount; i++) {
-            positions[i * 3] = (Math.random() - 0.5) * 300;
-            positions[i * 3 + 1] = (Math.random() - 0.5) * 300;
-            positions[i * 3 + 2] = (Math.random() - 0.5) * 300;
-
-            particleVelocities.push({
-                x: (Math.random() - 0.5) * 0.3,
-                y: (Math.random() - 0.5) * 0.3,
-                z: (Math.random() - 0.5) * 0.3
-            });
-        }
-
-        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-
-        const particleMaterial = new THREE.PointsMaterial({
-            color: 0xFF6B6B,
-            size: 1.5,
-            sizeAttenuation: true,
-            opacity: 0.7,
-            transparent: true,
-            emissive: 0xFF6B6B,
-            emissiveIntensity: 0.5
-        });
-
-        const particles = new THREE.Points(particlesGeometry, particleMaterial);
-        scene.add(particles);
-
-        // Lines
-        const lineGeometry = new THREE.BufferGeometry();
-        const lineMaterial = new THREE.LineBasicMaterial({
-            color: 0xFF6B6B,
-            opacity: 0.15,
-            transparent: true
-        });
-
-        const lines = new THREE.LineSegments(lineGeometry, lineMaterial);
-        scene.add(lines);
-
-        // Animation loop
-        let time = 0;
-        const maxDistance = 120;
-
-        function updateLines() {
-            const posArray = particles.geometry.attributes.position.array;
-            const linePositions = [];
-
-            for (let i = 0; i < particleCount; i++) {
-                for (let j = i + 1; j < particleCount; j++) {
-                    const x1 = posArray[i * 3];
-                    const y1 = posArray[i * 3 + 1];
-                    const z1 = posArray[i * 3 + 2];
-
-                    const x2 = posArray[j * 3];
-                    const y2 = posArray[j * 3 + 1];
-                    const z2 = posArray[j * 3 + 2];
-
-                    const dist = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2 + (z2 - z1) ** 2);
-
-                    if (dist < maxDistance) {
-                        linePositions.push(x1, y1, z1);
-                        linePositions.push(x2, y2, z2);
-                    }
-                }
-            }
-
-            lines.geometry.setAttribute('position', new THREE.BufferAttribute(new Float32Array(linePositions), 3));
-        }
-
-        function animate() {
-            requestAnimationFrame(animate);
-            time += 0.001;
-
-            const posArray = particles.geometry.attributes.position.array;
-
-            for (let i = 0; i < particleCount; i++) {
-                posArray[i * 3] += particleVelocities[i].x;
-                posArray[i * 3 + 1] += particleVelocities[i].y;
-                posArray[i * 3 + 2] += particleVelocities[i].z;
-
-                if (Math.abs(posArray[i * 3]) > 150) particleVelocities[i].x *= -1;
-                if (Math.abs(posArray[i * 3 + 1]) > 150) particleVelocities[i].y *= -1;
-                if (Math.abs(posArray[i * 3 + 2]) > 150) particleVelocities[i].z *= -1;
-            }
-
-            particles.geometry.attributes.position.needsUpdate = true;
-            updateLines();
-
-            objects.forEach((obj, index) => {
-                obj.mesh.rotation.x += obj.rotationSpeed.x;
-                obj.mesh.rotation.y += obj.rotationSpeed.y;
-                obj.mesh.rotation.z += obj.rotationSpeed.z;
-            });
-
-            pointLight1.position.x = Math.cos(time) * 80;
-            pointLight1.position.z = Math.sin(time) * 80;
-
-            renderer.render(scene, camera);
-        }
-
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        });
-
-        animate();
-    </script>
-</body>
-</html>
+                    <p style="color: #cccccc;">vineethkrishnan2000@g
